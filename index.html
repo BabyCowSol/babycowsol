@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f2df">
+<meta name="description" content="BABYCOW — Tiny moo. Big energy. Join the herd.">
+<title>BABYCOW — Tiny Moo. Big Energy.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#f6f2df;
+  --ink:#18271d;
+  --green:#b9e86d;
+  --green2:#d9f6a8;
+  --pink:#ffb7bd;
+  --white:#fffdf2;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;overflow-x:hidden
+}
+a {color:inherit;text-decoration:none}
+button {font:inherit}
+.wrap {width:min(1120px,90%);margin:auto}
+.mono {
+  font-family:'DM Mono',monospace;text-transform:uppercase;
+  letter-spacing:1.5px;font-size:11px
+}
+nav {
+  min-height:76px;display:flex;align-items:center;
+  justify-content:space-between;border-bottom:1.5px solid var(--ink);gap:15px
+}
+.logo {font-size:25px;font-weight:700;letter-spacing:-1.5px}
+.logo span {color:#69952d}
+.navlinks {display:flex;align-items:center;gap:25px;font-size:13px;font-weight:600}
+.pill {
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1.5px solid var(--ink);border-radius:100px;
+  padding:12px 19px;font-size:12px;font-weight:700;transition:.2s
+}
+.pill:hover {background:var(--green);transform:translateY(-2px)}
+.hero {
+  min-height:570px;display:grid;grid-template-columns:1.05fr .95fr;
+  align-items:center;gap:30px;padding:55px 0 65px
+}
+.eyebrow {
+  display:inline-flex;gap:9px;align-items:center;padding:9px 13px;
+  border:1px solid var(--ink);border-radius:50px;background:var(--white)
+}
+.dot {width:8px;height:8px;background:#79ad39;border-radius:50%;display:inline-block}
+h1 {
+  font-size:clamp(58px,8.8vw,108px);line-height:.86;
+  letter-spacing:-7px;margin:27px 0
+}
+h1 .green {color:#7da83e}
+h1 .outline {color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero-desc {font-size:16px;line-height:1.8;max-width:430px;color:#526052}
+.actions {display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}
+.btn {
+  display:inline-flex;justify-content:center;align-items:center;gap:8px;
+  padding:15px 20px;border:1.5px solid var(--ink);border-radius:8px;
+  font-size:13px;font-weight:700;cursor:pointer;transition:.2s
+}
+.btn:hover {transform:translateY(-3px);box-shadow:3px 3px 0 var(--ink)}
+.btn-primary {background:var(--green)}
+.btn-light {background:var(--white)}
+.mascot-wrap {
+  position:relative;min-height:425px;display:flex;
+  align-items:center;justify-content:center
+}
+.mascot-card {
+  position:relative;width:100%;max-width:460px;aspect-ratio:1;
+  background:var(--green);border:2px solid var(--ink);
+  border-radius:48% 48% 35% 35%;box-shadow:8px 8px 0 var(--ink);
+  display:flex;align-items:center;justify-content:center;overflow:hidden
+}
+.sun {
+  position:absolute;width:245px;height:245px;
+  border:1.5px solid rgba(24,39,29,.25);border-radius:50%
+}
+.sun:before,.sun:after {
+  content:"";position:absolute;border:1px solid rgba(24,39,29,.25);
+  border-radius:50%;inset:20px
+}
+.sun:after {inset:40px}
+.cow {width:91%;position:relative;z-index:1}
+.sticker {
+  position:absolute;z-index:2;top:13%;right:-4px;background:var(--pink);
+  border:2px solid var(--ink);border-radius:50%;width:105px;height:105px;
+  display:grid;place-content:center;text-align:center;transform:rotate(12deg);
+  box-shadow:3px 3px 0 var(--ink);font-weight:700;font-size:13px;line-height:1.25
+}
+.star {position:absolute;z-index:2;font-size:42px}
+.star.one {left:1%;top:16%}
+.star.two {right:3%;bottom:16%;font-size:34px}
+.float-tag {
+  position:absolute;bottom:5%;left:-3%;z-index:3;background:var(--white);
+  border:1.5px solid var(--ink);padding:12px 16px;border-radius:8px;
+  box-shadow:3px 3px 0 var(--ink);font-size:12px;font-weight:700;
+  transform:rotate(-5deg)
+}
+.ticker {
+  background:var(--ink);color:var(--green);padding:17px 0;overflow:hidden;
+  border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)
+}
+.ticker-track {display:flex;width:max-content;animation:scroll 25s linear infinite}
+.ticker-track span {
+  font-weight:700;font-size:15px;letter-spacing:2px;
+  padding-right:35px;white-space:nowrap
+}
+@keyframes scroll {to {transform:translateX(-50%)}}
+section {padding:85px 0}
+.section-top {
+  display:flex;justify-content:space-between;align-items:end;
+  gap:20px;margin-bottom:35px
+}
+.section-label {color:#668a35;margin-bottom:12px}
+h2 {font-size:clamp(35px,5vw,58px);line-height:.98;letter-spacing:-3px;margin:0}
+.section-desc {max-width:350px;font-size:14px;line-height:1.8;color:#596457}
+.cards {display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card {
+  background:var(--white);border:1.5px solid var(--ink);border-radius:15px;
+  padding:25px;box-shadow:4px 4px 0 var(--ink);transition:.2s
+}
+.card:hover {transform:translateY(-5px)}
+.card-icon {
+  width:55px;height:55px;display:grid;place-items:center;font-size:27px;
+  background:var(--green2);border:1px solid var(--ink);border-radius:13px;
+  margin-bottom:25px
+}
+.card:nth-child(2) .card-icon {background:var(--pink)}
+.card:nth-child(3) .card-icon {background:#d8d4ff}
+.card h3 {font-size:21px;margin:0 0 10px}
+.card p {color:#626b5e;line-height:1.75;font-size:14px;margin:0}
+.how {background:var(--green2);border-block:1.5px solid var(--ink)}
+.steps {display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.step {border-top:1.5px solid var(--ink);padding:22px 5px 0}
+.step-num {font-size:12px;color:#648b31;font-family:'DM Mono',monospace}
+.step h3 {font-size:22px;margin:17px 0 8px}
+.step p {color:#526052;line-height:1.7;font-size:14px}
+.token-box {
+  border:2px solid var(--ink);border-radius:20px;background:var(--white);
+  padding:35px;box-shadow:6px 6px 0 var(--ink)
+}
+.token-head {display:flex;justify-content:space-between;align-items:start;gap:20px}
+.token-head h2 {margin:10px 0}
+.token-symbol {
+  background:var(--pink);border:1.5px solid var(--ink);
+  border-radius:12px;padding:12px 16px;font-weight:700
+}
+.ca-label {margin:28px 0 9px}
+.ca-row {display:flex;align-items:center;gap:12px}
+.ca-text {
+  min-width:0;flex:1;padding:15px;background:var(--cream);
+  border:1px dashed var(--ink);border-radius:8px;overflow-wrap:anywhere;
+  font:12px 'DM Mono',monospace
+}
+.copy-btn {
+  background:var(--green);border:1.5px solid var(--ink);
+  border-radius:8px;padding:15px;font-weight:700;cursor:pointer
+}
+.notice {color:#66705f;font-size:12px;line-height:1.7;margin-top:15px}
+.community {background:var(--pink);border-block:1.5px solid var(--ink);text-align:center}
+.community p {max-width:480px;margin:20px auto;line-height:1.8}
+.community .actions {justify-content:center}
+footer {padding:28px 0}
+.footer-inner {display:flex;align-items:center;justify-content:space-between;gap:20px}
+footer p {font-size:11px;color:#677062;line-height:1.7}
+footer .logo {font-size:22px}
+@media(max-width:760px) {
+  .navlinks {gap:12px}
+  .navlinks .hide-mobile {display:none}
+  .hero {grid-template-columns:1fr;padding:55px 0}
+  h1 {letter-spacing:-4px;font-size:clamp(60px,15vw,94px)}
+  .mascot-wrap {min-height:auto;padding:10px 12px 25px}
+  .mascot-card {max-width:410px}
+  .section-top {align-items:start;flex-direction:column}
+  .cards,.steps {grid-template-columns:1fr}
+  .step {padding-bottom:8px}
+  section {padding:65px 0}
+  .token-box {padding:23px}
+  .ca-row {align-items:stretch;flex-direction:column}
+  .copy-btn {width:100%}
+  .footer-inner {align-items:start;flex-direction:column}
+  .sticker {width:85px;height:85px;font-size:11px;right:0}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    animation-duration:.01ms!important;scroll-behavior:auto!important;
+    transition-duration:.01ms!important
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">BABY<span>COW</span> 🐮</a>
+    <div class="navlinks">
+      <a class="hide-mobile" href="#story">Our Story</a>
+      <a class="hide-mobile" href="#token">Token</a>
+      <a class="pill" href="#community">Join the Herd ↗</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow mono"><span class="dot"></span> Welcome to the herd</div>
+      <h1>TINY MOO.<br><span class="green">BIG</span><br><span class="outline">ENERGY.</span></h1>
+      <p class="hero-desc">
+        Small cow. Big dreams. 🐮 Welcome to BABYCOW,
+        where the vibes are wholesome and the herd moves together.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#token">Explore BABYCOW ↗</a>
+        <a class="btn btn-light" href="#story">Meet the Cow ↓</a>
+      </div>
+      <p class="mono" style="margin-top:25px;color:#6a7564">NO DRAMA. JUST MOO.</p>
+    </div>
+
+    <div class="mascot-wrap">
+      <div class="mascot-card">
+        <div class="sun"></div>
+        <span class="star one">✳</span>
+        <span class="star two">✦</span>
+
+        <!-- NEW COW MASCOT -->
+        <svg class="cow" viewBox="0 0 360 340" role="img" aria-label="Cute baby cow with horns and black cow spots">
+          <ellipse cx="180" cy="300" rx="91" ry="11" fill="#18271d" opacity=".12"/>
+
+          <!-- Ears -->
+          <path d="M112 105 Q65 51 25 75 Q32 119 105 143Z"
+            fill="#fffdf2" stroke="#18271d" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M248 105 Q295 51 335 75 Q328 119 255 143Z"
+            fill="#fffdf2" stroke="#18271d" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M91 100 Q60 78 48 88 Q62 111 96 124Z" fill="#ffb7bd"/>
+          <path d="M269 100 Q300 78 312 88 Q298 111 264 124Z" fill="#ffb7bd"/>
+
+          <!-- Body and legs -->
+          <path d="M112 218 Q93 237 96 272 L105 294 L143 294 L151 266 L209 266 L217 294 L255 294 L264 272 Q267 237 248 218Z"
+            fill="#fffdf2" stroke="#18271d" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M104 279 L143 279 L143 295 L105 295Z" fill="#18271d"/>
+          <path d="M217 279 L256 279 L255 295 L217 295Z" fill="#18271d"/>
+
+          <!-- Head -->
+          <path d="M111 103 Q180 65 249 103 L265 180 Q270 239 180 255 Q90 239 95 180Z"
+            fill="#fffdf2" stroke="#18271d" stroke-width="7" stroke-linejoin="round"/>
+
+          <!-- Cow spots -->
+          <path d="M119 110 Q105 125 120 146 Q137 154 151 132 L150 108Z" fill="#18271d"/>
+          <path d="M220 167 Q242 151 257 170 L260 192 Q244 210 226 196Z" fill="#18271d"/>
+
+          <!-- Horns -->
+          <path d="M137 91 Q120 64 139 48 Q157 58 159 91Z"
+            fill="#f3d9a2" stroke="#18271d" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M201 91 Q203 58 221 48 Q240 64 223 91Z"
+            fill="#f3d9a2" stroke="#18271d" stroke-width="6" stroke-linejoin="round"/>
+
+          <!-- Eyes -->
+          <ellipse cx="147" cy="169" rx="9" ry="13" fill="#18271d"/>
+          <ellipse cx="213" cy="169" rx="9" ry="13" fill="#18271d"/>
+          <circle cx="150" cy="165" r="3.5" fill="#fffdf2"/>
+          <circle cx="216" cy="165" r="3.5" fill="#fffdf2"/>
+
+          <!-- Blush -->
+          <ellipse cx="122" cy="194" rx="12" ry="7" fill="#ffb7bd" opacity=".7"/>
+          <ellipse cx="238" cy="194" rx="12" ry="7" fill="#ffb7bd" opacity=".7"/>
+
+          <!-- Smaller cow muzzle -->
+          <path d="M143 195 Q180 180 217 195 Q226 202 220 218 Q212 233 180 234 Q148 233 140 218 Q134 202 143 195Z"
+            fill="#f3d9d2" stroke="#18271d" stroke-width="5" stroke-linejoin="round"/>
+          <ellipse cx="163" cy="210" rx="4" ry="6" fill="#18271d"/>
+          <ellipse cx="197" cy="210" rx="4" ry="6" fill="#18271d"/>
+          <path d="M168 222 Q180 231 192 222"
+            fill="none" stroke="#18271d" stroke-width="3.5" stroke-linecap="round"/>
+
+          <!-- Tail -->
+          <path d="M253 246 Q289 247 294 216"
+            fill="none" stroke="#18271d" stroke-width="6" stroke-linecap="round"/>
+          <path d="M294 216 Q307 202 317 214"
+            fill="none" stroke="#18271d" stroke-width="6" stroke-linecap="round"/>
+          <path d="M308 207 L322 215 L309 225Z" fill="#18271d"/>
+        </svg>
+      </div>
+      <div class="sticker">100%<br>PURE<br>MOO ✿</div>
+      <div class="float-tag">✦ Certified little legend</div>
+    </div>
+  </header>
+</div>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>✳ BABYCOW ✳ TINY MOO ✳ BIG ENERGY ✳ JOIN THE HERD ✳ STAY MOOOVING ✳ </span>
+    <span>✳ BABYCOW ✳ TINY MOO ✳ BIG ENERGY ✳ JOIN THE HERD ✳ STAY MOOOVING ✳ </span>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="story">
+    <div class="section-top">
+      <div>
+        <div class="mono section-label">01 / THE LORE</div>
+        <h2>JUST A LITTLE<br>COW WITH BIG PLANS.</h2>
+      </div>
+      <p class="section-desc">
+        The internet is a wild place. We're here to bring a little
+        charm, a little chaos, and a whole lot of cow energy.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">🐮</div>
+        <h3>Born to Moo</h3>
+        <p>Just a baby cow making its way across the internet. Cute face, big dreams.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Growing Together</h3>
+        <p>A community is built one moo at a time. Bring your friends and join the herd.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Big Energy</h3>
+        <p>Good vibes, bold ideas, and a little degen spirit. That's the BABYCOW way.</p>
+      </article>
+    </div>
+  </section>
+</div>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="mono section-label">02 / HOW TO JOIN</div>
+    <h2>THREE STEPS.<br>ONE BIG HERD.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">STEP 01 — DISCOVER</div>
+        <h3>Meet BABYCOW</h3>
+        <p>Explore the project and check the official links before getting involved.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 02 — CONNECT</div>
+        <h3>Find Your Herd</h3>
+        <p>Follow our official social channels and connect with the community.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 03 — MOO</div>
+        <h3>Spread the Vibe</h3>
+        <p>Share the love, create memes, and help BABYCOW reach new people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section id="token">
+    <div class="token-box">
+      <div class="token-head">
+        <div>
+          <div class="mono section-label">03 / TOKEN DETAILS</div>
+          <h2>THE LITTLE<br>BIG THING.</h2>
+          <p class="section-desc">Always double-check the contract address before making a transaction.</p>
+        </div>
+        <div class="token-symbol">$BABYCOW 🐮</div>
+      </div>
+      <div class="mono ca-label">CONTRACT ADDRESS</div>
+      <div class="ca-row">
+        <div class="ca-text" id="contract">ADD_YOUR_CA_HERE</div>
+        <button class="copy-btn" onclick="copyCA()">COPY CA ↗</button>
+      </div>
+      <p class="notice" id="copy-message">Replace ADD_YOUR_CA_HERE with your official token contract address before sharing this website.</p>
+    </div>
+  </section>
+</div>
+
+<section class="community" id="community">
+  <div class="wrap">
+    <div class="mono">04 / THE HERD IS CALLING</div>
+    <h2 style="margin-top:18px">LESS TALK.<br>MORE MOO.</h2>
+    <p>Every great herd starts somewhere. Follow BABYCOW, join the community, and let's make some noise together.</p>
+    <div class="actions">
+      <!-- Replace with your official social links -->
+      <a class="btn btn-primary" href="https://x.com/" target="_blank" rel="noopener noreferrer">Follow on X ↗</a>
+      <a class="btn btn-light" href="https://t.me/" target="_blank" rel="noopener noreferrer">Join Telegram ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <div class="footer-inner">
+      <a class="logo" href="#">BABY<span>COW</span> 🐮</a>
+      <p>JUST A LITTLE COW ON THE INTERNET.<br>© 2026 BABYCOW. STAY MOOOVING.</p>
+    </div>
+    <p>Disclaimer: This website is for informational and community purposes only. Crypto assets are risky and may lose all their value. Nothing here is financial advice.</p>
+  </footer>
+</div>
+
+<script>
+async function copyCA() {
+  const ca = document.getElementById("contract").textContent.trim();
+  const message = document.getElementById("copy-message");
+
+  if (!ca || ca === "ADD_YOUR_CA_HERE") {
+    message.textContent = "Please add your official contract address first!";
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(ca);
+    message.textContent = "Contract address copied!";
+  } catch (error) {
+    message.textContent = "Please select and copy the contract address manually.";
+  }
+}
+</script>
+</body>
+          </html>
+          
